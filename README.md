@@ -39,5 +39,24 @@ OFP: 将问题分解为多组'动词',独立的, 组合构建更大的函数, �
 让函数可配置  
 
 ### 函数组合
-通过函数来构建函数
+通过函数来构建函数  
+- 柯里化 currying  
+每一个参数都会返回一个新的函数  
+```
+// 接受一个函数, 返回一个只接受一个参数的函数
+function curry2(func: Function) {
+  return function (secondArg: number) {
+    return function (firstArg: number) {
+      return func(firstArg, secondArg)
+    }
+  }
+}
+
+function divide(n: number, d: number) {
+  return n / d
+}
+
+console.log(curry2(divide)(10)(2)) // 0.2
+console.log(curry2(divide)(2)(10)) // 5
+```
 
