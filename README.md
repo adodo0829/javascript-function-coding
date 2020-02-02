@@ -46,7 +46,7 @@ OFP: 将问题分解为多组'动词',独立的, 组合构建更大的函数, �
 // 接受一个函数, 返回一个只接受一个参数的函数
 function curry2(func: Function) {
   return function (secondArg: number) {
-    return function (firstArg: number) {
+    return function (firstArg: number | string) {
       return func(firstArg, secondArg)
     }
   }
@@ -55,8 +55,10 @@ function curry2(func: Function) {
 function divide(n: number, d: number) {
   return n / d
 }
-
+// 将 divide 函数需要的参数分别剥离出来, 参数的顺序决定了函数的行为
+// 这样我们可以定制函数的行为
 console.log(curry2(divide)(10)(2)) // 0.2
 console.log(curry2(divide)(2)(10)) // 5
+console.log(curry2(parseInt)(2)('111')) // 7
 ```
 
