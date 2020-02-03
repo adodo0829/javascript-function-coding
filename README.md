@@ -99,6 +99,7 @@ console.log(blueGreenClass(0)) // #ffc800
 ```
 - 生成器  
 ```
+return 一个对象:
 头部: 检测当前值的函数
 尾部: 一个递归调用的函数
 ```
